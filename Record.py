@@ -6,10 +6,10 @@ import numpy as np
 path="C:\\Users\\ZN\\Desktop\\Wava test\\ReadFile"
 CHUNK = 1024
 FORMAT = pyaudio.paInt16
-CHANNELS = 2
+CHANNELS = 1
 RATE = 8000
 RECORD_SECONDS = 10#聲音紀錄的最小長度
-LEVEL = 1500#聲音保存的閥值
+LEVEL = 20#聲音保存的閥值
 COUNT_NUM = 20#NUM_SAMPLES個取樣之内出现COUNT_NUMLEVEL的取樣則紀錄聲音
 WAVE_OUTPUT_FILENAME = datetime.now().strftime("%Y-%m-%d_%H_%M_%S")+ ".wav"
 
@@ -38,6 +38,7 @@ for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
         frames.append(data)
 
 print("Recode a piece of  voice successfully!")
+print("Name is :"+WAVE_OUTPUT_FILENAME)
 
 stream.stop_stream()
 stream.close()
